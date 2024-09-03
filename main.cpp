@@ -1,7 +1,9 @@
 #include<iostream>
+#include <type_traits>
 
 #include "002.hpp"
 #include "003.hpp"
+#include "004.hpp"
 
 using namespace std;
 
@@ -48,6 +50,15 @@ void test03()
 	cout << math3.max(1.234, 4.567) << endl;
 
 }
+
+void test04()
+{
+	//模板类
+	A<B>  a;
+
+	cout <<  typeid(a.iter).name()<< endl;
+
+}
 int  main()
 {
 	std::cout << "**********002!\n";
@@ -55,4 +66,7 @@ int  main()
 
 	std::cout << "**********003!\n";
 	test03();
+
+	std::cout << "**********004!\n";
+	test04();
 }
