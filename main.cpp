@@ -6,6 +6,7 @@
 #include "004.hpp"
 #include "005.hpp"
 #include "006.hpp"
+#include "007.hpp"
 
 using namespace std;
 
@@ -109,6 +110,18 @@ void test06()
     cout << AAA<char>::s2 << endl;
 	//cout << A<double>::s2 << endl;//必须特化，不然找不到s2
 }
+
+void test07()
+{
+	//外部类
+	Outer<int>  o;
+	o.print();
+
+	//内部类 
+	Outer<int>::Inner<float> i;//同样加上::作用域限定符
+	i.print();
+
+}
 int  main()
 {
 	std::cout << "**********002!\n";
@@ -125,4 +138,7 @@ int  main()
 
 	std::cout << "**********006!\n";
 	test06();
+
+	std::cout << "**********007!\n";
+	test07();
 }
