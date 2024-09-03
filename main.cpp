@@ -4,6 +4,7 @@
 #include "002.hpp"
 #include "003.hpp"
 #include "004.hpp"
+#include "005.hpp"
 
 using namespace std;
 
@@ -54,11 +55,45 @@ void test03()
 void test04()
 {
 	//模板类
-	A<B>  a;
+	AA<BB>  a;
 
 	cout <<  typeid(a.iter).name()<< endl;
 
 }
+
+
+void test05()
+{
+	//普通的
+	A<int, int> a;
+	a.print();
+	//a.show();//没有这个成员函数，这就是与特化的区别
+
+	//被全特化的
+	A<int, float> a2;
+	a2.print();
+	a2.show();
+
+	A<float, float> a3;
+	//a3.print();//没有这个成员函数，这就是与特化的区别
+	a3.show();
+
+
+	//偏特化
+	A< char, float> a4;
+	a4.show();
+
+
+	//普通的函数模板
+	test<int, float>(1,2.0f);
+
+	//全特化的模板
+	test<int, int>(1, 2);
+
+	//函数偏特化
+	test<int, double>(1,1.234);
+}
+
 int  main()
 {
 	std::cout << "**********002!\n";
@@ -69,4 +104,7 @@ int  main()
 
 	std::cout << "**********004!\n";
 	test04();
+
+	std::cout << "**********005!\n";
+	test05();
 }
