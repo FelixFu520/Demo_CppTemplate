@@ -7,6 +7,7 @@
 #include "005.hpp"
 #include "006.hpp"
 #include "007.hpp"
+#include "008.hpp"
 
 using namespace std;
 
@@ -122,6 +123,39 @@ void test07()
 	i.print();
 
 }
+
+void  test08()
+{
+
+	//1.普通类继承模板类
+	B0  b(111, 1.234);
+	b.printA();
+	b.printB();
+
+	//2.类模板继承普通类
+	B2<float>  b2(111, 1.234);
+	b2.printA();
+	b2.printB();
+
+
+	//3.类模板继承类模板
+	B3<int , float>  b3( 123 ,1.234f);
+	b3.printA();
+	b3.printB();
+
+	//4.类模板继承模板类
+	B4<float>  b4(123, 1.234f);
+	b4.printA();
+	b4.printB();
+
+
+	//5.类模板继承类型参数
+	B5<float , A5<int> >  b5(123, 1.234f);
+	b5.printA();
+	b5.printB();
+
+}
+
 int  main()
 {
 	std::cout << "**********002!\n";
@@ -141,4 +175,7 @@ int  main()
 
 	std::cout << "**********007!\n";
 	test07();
+
+	std::cout << "**********008!\n";
+	test08();
 }
