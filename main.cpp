@@ -5,6 +5,7 @@
 #include "003.hpp"
 #include "004.hpp"
 #include "005.hpp"
+#include "006.hpp"
 
 using namespace std;
 
@@ -61,7 +62,6 @@ void test04()
 
 }
 
-
 void test05()
 {
 	//普通的
@@ -94,6 +94,21 @@ void test05()
 	test<int, double>(1,1.234);
 }
 
+void test06()
+{
+	//对任意类型T的s都有一份通用的值111
+	cout << AAA<float>::s << endl;
+	cout << AAA<int>::s << endl;
+	cout << AAA<char>::s << endl;
+	cout << AAA<double>::s << endl;
+
+
+	//特定类型，s2特定值
+	cout << AAA<float>::s2 << endl;
+    cout << AAA<int>::s2 << endl;
+    cout << AAA<char>::s2 << endl;
+	//cout << A<double>::s2 << endl;//必须特化，不然找不到s2
+}
 int  main()
 {
 	std::cout << "**********002!\n";
@@ -107,4 +122,7 @@ int  main()
 
 	std::cout << "**********005!\n";
 	test05();
+
+	std::cout << "**********006!\n";
+	test06();
 }
