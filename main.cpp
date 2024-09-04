@@ -11,6 +11,7 @@
 #include "009.hpp"
 #include "010.hpp"
 #include "011.hpp"
+#include "012.hpp"
 
 using namespace std;
 
@@ -200,6 +201,53 @@ void  test11()
 
 }
 
+void  test12()
+{
+	int ****p = 0;
+	f1(p); //被推导为 int***
+	//f1<int ***>(p); 由于自动推导， <int ***>可以被省略
+
+	int  b[42] = { 1,2,3,4,5 };
+	char c[10] = "hello!";
+	f2(b); // E被推导为  int， N被推导为 42
+	f2(c); // E被推导为  char， N被推导为 10
+
+
+
+	f3( &S::f);//通过传入的参数，自动推导出来，很智能
+
+
+     // f4的参数是个X<N> 的成员函数、该函数的回返类型为 void，接受一个 X<N>::I参数
+	f4( &X<10>::f);
+
+
+	//函数指针f6
+	void(*f6)(char) = f5;//推导成功，并将 T替换为 char,以保持赋值的合法性
+	f6('A');
+
+	N<long> n1;
+	M<float> m1;
+	f7(n1);// 推导成功： T被替换为 long
+	f7(m1);// 推导成功： T被替换为 long
+
+
+	char *p8 = "abc";
+	f8(p8);// 推导成功： T被替换为 char* 
+	f9(p8);// 推导成功： T被替换为 char* 
+	double  pp[20];
+	f8(pp);// 推导成功： T被替换为 double* 
+	f9(pp);// 推导成功： T被替换为 double [20]
+
+
+	int   aa = 99;//即是左值，也是右值
+	f10(aa); //正确
+	f10(100); //正确，可以传入右值
+	f10(0.003); //正确，可以传入右值
+	f10("sdfsf"); //正确，可以传入右值
+
+	f11<Y>();
+}
+
 int  main()
 {
 	std::cout << "**********002!\n";
@@ -231,4 +279,7 @@ int  main()
 
 	std::cout << "**********011!\n";
 	test11();
+
+	std::cout << "**********012!\n";
+	test12();
 }
