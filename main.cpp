@@ -16,6 +16,7 @@
 #include "013.hpp"
 #include "015.hpp"
 #include "016.hpp"
+#include "017.hpp"
 
 
 using namespace std;
@@ -345,6 +346,8 @@ void  test17()
 	std::cout << std::is_object<A>::value << '\n';
 	std::cout << std::is_object<A&>::value << '\n';
 
+	std::cout << "------------------------"<<endl;
+	test0017();
 }
 
 int  main()
