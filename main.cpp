@@ -12,6 +12,7 @@
 #include "010.hpp"
 #include "011.hpp"
 #include "012.hpp"
+#include "013.hpp"
 
 using namespace std;
 
@@ -248,6 +249,19 @@ void  test12()
 	f11<Y>();
 }
 
+void  test13()
+{
+	// A13<int>  a;//模板类
+
+
+	//利用编译期递归实现求和函数
+   cout<<	Sum<100>::value<<endl;
+
+
+   //利用编译期递归实现二进制转十进制
+   cout << BinToDec<10000>::val << endl;
+   cout << BinToDec<10001>::val << endl;
+}
 int  main()
 {
 	std::cout << "**********002!\n";
@@ -282,4 +296,7 @@ int  main()
 
 	std::cout << "**********012!\n";
 	test12();
+
+	std::cout << "**********013!\n";
+	test13();
 }
