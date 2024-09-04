@@ -9,6 +9,7 @@
 #include "007.hpp"
 #include "008.hpp"
 #include "009.hpp"
+#include "010.hpp"
 
 using namespace std;
 
@@ -165,6 +166,28 @@ void  test09()
 
 }
 
+void  test10()
+{
+	//实现了动态数组，由用户指定长度
+	test<10>();
+	test<20>();
+
+
+	//不能引用非外部实体
+	//test2<"hello world!">();
+
+	//char  str[] = "hello world!";
+	//test2< str>();//非静态存储的变量
+
+	test2<str2>();
+ 
+	test3<i3>();
+
+	test4<&i3>(); 
+
+	test5<fun5>();
+}
+
 int  main()
 {
 	std::cout << "**********002!\n";
@@ -190,4 +213,7 @@ int  main()
 
 	std::cout << "**********009!\n";
 	test09();
+
+	std::cout << "**********010!\n";
+	test10();
 }
