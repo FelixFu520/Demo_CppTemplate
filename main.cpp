@@ -10,6 +10,7 @@
 #include "008.hpp"
 #include "009.hpp"
 #include "010.hpp"
+#include "011.hpp"
 
 using namespace std;
 
@@ -188,6 +189,17 @@ void  test10()
 	test5<fun5>();
 }
 
+void  test11()
+{
+	B11 b;
+	b.print();
+
+	//需要T是一个模板，用模板实例化
+	B111<A111>  b1;
+	b1.print();
+
+}
+
 int  main()
 {
 	std::cout << "**********002!\n";
@@ -216,4 +228,7 @@ int  main()
 
 	std::cout << "**********010!\n";
 	test10();
+
+	std::cout << "**********011!\n";
+	test11();
 }
