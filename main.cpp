@@ -8,6 +8,7 @@
 #include "006.hpp"
 #include "007.hpp"
 #include "008.hpp"
+#include "009.hpp"
 
 using namespace std;
 
@@ -156,6 +157,14 @@ void  test08()
 
 }
 
+void  test09()
+{
+	//  类型参数 传入的都是类型，比如int, float ,double
+	auto r = sum9<int, float, double>(111,1.234f);
+	cout << r << endl;
+
+}
+
 int  main()
 {
 	std::cout << "**********002!\n";
@@ -178,4 +187,7 @@ int  main()
 
 	std::cout << "**********008!\n";
 	test08();
+
+	std::cout << "**********009!\n";
+	test09();
 }
