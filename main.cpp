@@ -13,6 +13,7 @@
 #include "011.hpp"
 #include "012.hpp"
 #include "013.hpp"
+#include "015.hpp"
 
 using namespace std;
 
@@ -262,6 +263,21 @@ void  test13()
    cout << BinToDec<10000>::val << endl;
    cout << BinToDec<10001>::val << endl;
 }
+
+void  test15()
+{
+	//编译期的if结构
+	If<true>::fun();
+	If<false>::fun();
+
+
+	//编译期的swicth结构
+	Switch<1>::f();
+	Switch<2>::f();
+	Switch<666>::f();
+
+
+}
 int  main()
 {
 	std::cout << "**********002!\n";
@@ -299,4 +315,7 @@ int  main()
 
 	std::cout << "**********013!\n";
 	test13();
+
+	std::cout << "**********015!\n";
+	test15();
 }
