@@ -42,7 +42,7 @@ public:
 template<int N>//非类型参数N
 void  f4(    void (X<N>::*  p)(  typename X<N>::I   )     )//l是模板的类型
 {
-	//cout << N << "    "<<typeid(X<N>::I).name() << endl;
+	cout << N << "    "<<typeid(typename X<N>::I).name() << endl;
 	cout << N << "    "<< endl;
 
 }
