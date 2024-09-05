@@ -12,7 +12,24 @@ using namespace std;
 // class A13<void>
 // {
 // };
+template<typename T>
+class A13 {
+private:
+    A13<void>* a;  // 使用指针而不是直接包含对象
+public:
+    A13() : a(nullptr) {}
+    ~A13() {
+        delete a;  // 确保适当地释放内存
+    }
+};
 
+// 特化终结递归定义
+template <>
+class A13<void> {
+public:
+    A13() {}
+    ~A13() {}
+};
 
 template<int N>
 class Sum
